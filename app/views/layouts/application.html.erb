@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <% if logged_in? %>
+      <%= button_to "Logout", new_session_url, method: 'get' %>
+    <% else %>
+      <%= button_to "Sign up!", new_user_url, method: 'get' %>
+      <%= button_to "Login!", new_session_url, method: 'get' %>
+    <% end %>
+  </header>
 
 <%= yield %>
 
