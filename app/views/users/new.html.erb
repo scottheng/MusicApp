@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MusicApp - Sign Up</title>
+  </head>
+  <body>
+    <header>
+      Sign up here!
+    </header>
+
+    <section>
+      <form action="<%= users_url %>" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <label for="user_email">Email:</label>
+        <input type="text" name="user[email]" id="user_email" />
+        <br>
+        <label for="user_password">Password</label>
+        <input type="password" name="user[password]" id="user_password" />
+        <br>
+        <br>
+
+        <input type="submit" value="Sign up!">
+      </form>
+    </section>
+
+  </body>
+</html>
