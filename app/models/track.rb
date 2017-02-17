@@ -1,5 +1,8 @@
 class Track < ActiveRecord::Base
-  validates :title, :classification, :album_id, presence: true
+  CLASS = %w(bonus regular)
 
-  belongs_to :album, dependent: :destroy
+  validates :title, :album_id, presence: true
+  validates :classification, inclusion: {in: CLASS }
+
+  belongs_to :album
 end

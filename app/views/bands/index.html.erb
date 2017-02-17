@@ -1,5 +1,9 @@
 <h1>Bands</h1>
 
-<% @bands.each do |band| %>
-  <%= band.name %>
-<% end %>
+<ul>
+  <li>
+  <% @bands.each do |band| %>
+    <a href="bands/<%= band.id %>"><%= band.name %></a>
+  </li>
+  <% end %>
+</ul>

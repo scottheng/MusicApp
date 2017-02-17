@@ -1,0 +1,7 @@
+<h1> <%= @track.title %> </h1>
+
+<section>
+  <%= button_to 'Edit Track', edit_track_url(@track), method: 'get' %>
+
+  <%= button_to 'Delete Track', track_url(@track), method: 'delete' %>
+</section>
