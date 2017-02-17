@@ -9,10 +9,9 @@ class UsersController < ApplicationController
 
     if @user.save
       login!(@user)
-      redirect_to user_url(@user)
+      redirect_to bands_url
 
     else
-      fail
       flash[:errors] = @user.errors.full_messages
       render :new
     end
@@ -23,9 +22,9 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
 
     if @user
-
+      render :show
     else
-
+      
     end
 
   end

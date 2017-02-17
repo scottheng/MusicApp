@@ -1,7 +1,26 @@
 <h1> <%= @band.name %> </h1>
 
+
+<section>
+  <ul>
+    <li>
+    <% @band.albums.each do |album| %>
+      <a href="../albums/<%= album.id %>"><%= album.title %></a>
+    </li>
+    <% end %>
+
+    <li>
+      <a href="../albums/new">Add a new album!</a>
+
+    </li>
+  </ul>
+
+</section>
+
 <section>
   <%= button_to 'Edit Band', edit_band_url(@band), method: 'get' %>
 
   <%= button_to 'Delete Band', band_url(@band), method: 'delete' %>
+
+  <%= button_to 'Return to Band Index', bands_url, method: 'get' %>
 </section>
