@@ -4,7 +4,6 @@ class Album < ActiveRecord::Base
   validates :title, :year, :genre, :band_id, presence: true
   validates :category, inclusion: {in: CATEGORIES}
 
-  belongs_to :band, dependent: :destroy
+  belongs_to :band
 
-  has_many :tracks
 end

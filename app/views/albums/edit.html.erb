@@ -1,0 +1,39 @@
+<h1>
+  Edit an album!
+</h1>
+
+
+</form>
+<section>
+  <form action="<%= album_url(@album) %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="PATCH">
+    <label for="album_name">Title:</label>
+    <input type="text" name="album[title]" value ="<%= @album.title %>" id="album_name" />
+    <br>
+    <label for="album_year">Year:</label>
+    <input type="text" name="album[year]" value ="<%= @album.year %>" id="album_year" />
+    <br>
+    <label for="album_genre">Genre:</label>
+    <input type="text" name="album[genre]" value ="<%= @album.genre %>" id="album_genre" />
+    <br>
+    <label for="album_band">Band:</label>
+    <select name="album[band_id]">
+      <option disabled>Please select band name</option>
+      <% Band.all.each do |band| %>
+        <option value="<%= band.id %>" <%= band.id? ? "selected" : "" %> > <%= band.name %> </option>
+      <% end %>
+
+    </select>
+    <br>
+
+    <label for="album_category">Category:</label>
+      <input type="radio" name="album[category]" value="live" id="album_category" <%= @album.category == "live" ? "checked" : " " %> >Live</input>
+      <input type="radio" name="album[category]" value="studio" id="album_category" <%= @album.category == "studio" ? "checked" : " " %> >Studio</input>
+
+    <br>
+    <br>
+
+    <input type="submit" value="Edit album!">
+  </form>
+</section>

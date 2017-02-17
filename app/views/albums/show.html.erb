@@ -1,0 +1,7 @@
+<h1> <%= @album.title %> </h1>
+
+<section>
+  <%= button_to 'Edit Album', edit_album_url(@album), method: 'get' %>
+
+  <%= button_to 'Delete Album', album_url(@album), method: 'delete' %>
+</section>
